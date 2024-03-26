@@ -109,6 +109,24 @@ function testTestPalindrome() {
         console.log("-----------------------------------------");
     });
 }
+//inPlace Reversing
+function reverseArrayInPlace(arr) {
+    let left = 0;
+    let right = arr.length - 1;
+    
+    while (left < right) {
+        // Swap elements at left and right indices
+        let temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+        
+        // Move towards the center
+        left++;
+        right--;
+    }
+    
+    // Array is now reversed in place
+}
 
 // Function to test arrayReverse function
 function testArrayReverse() {
@@ -138,12 +156,30 @@ function testSortArray() {
     console.log("-----------------------------------------");
 }
 
+
+function testReverseArrayInPlace() {
+    const input = [1, 2, 3, 4, 5];
+    const expectedOutput = [5, 4, 3, 2, 1];
+    
+    console.log("Test Case: reverseArrayInPlace()");
+    console.log("Input:", input);
+    
+    reverseArrayInPlace(input);
+    
+    console.log("Expected Output:", expectedOutput);
+    console.log("Actual Output:", input);
+    console.log("Test Result:", JSON.stringify(input) === JSON.stringify(expectedOutput) ? "Pass" : "Fail");
+    console.log("-----------------------------------------");
+}
+
+
 // Run all test cases
 function runTests() {
     testGetPrimes();
     testTestPalindrome();
     testArrayReverse();
     testSortArray();
+    testReverseArrayInPlace();
 }
 
 // Execute test cases
